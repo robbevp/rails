@@ -13,6 +13,11 @@ begin
   require "ruby-vips"
 rescue LoadError => error
   raise error unless error.message.include?("ruby-vips")
+rescue => exception
+  puts exception.class
+  puts exception.message
+  puts exception.backtrace
+  raise exception
 end
 
 module ActiveStorage
